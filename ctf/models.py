@@ -11,4 +11,4 @@ class Problems(models.Model):
 
 
 
-admin.register(Problems)
+
