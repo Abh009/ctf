@@ -1,7 +1,5 @@
-
 jQuery(function($, undefined) {
     $('#terminal').terminal(function(command) {
-        console.log(command);
         if (command == 'about'){
             var result = 'Online Treasure Hunt by FOSS CLUB GECT';
             this.echo(new String(result));
@@ -24,7 +22,7 @@ jQuery(function($, undefined) {
     }, {
         greetings: 'FOSS ONLINE TREASURE HUNT',
         name: 'js_demo',
-        height: $(document).width(),
+        height: $(document).height(),
         prompt: 'foss ~ '
     });
 });
