@@ -20,5 +20,6 @@ from ctf import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('problems/',views.problems),
+    path('submit/',views.submit),
     path('',views.home),
 ]
