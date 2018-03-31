@@ -26,7 +26,7 @@ urlpatterns = [
     path('problems/',views.problems),
     path('submit/',views.submit),
     path('play/',views.terminal, name="play"),
-    path('login/',views.login,name="login"),
+    # path('login/',views.login,name="login"),
     path('logout/',views.logout_user,name="logout"),
     path('',views.home,name="home"),
     re_path(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
