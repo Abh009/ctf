@@ -70,7 +70,7 @@ jQuery(function($, undefined) {
             // do nothing
         }
         else{
-            this.error(new String("Command not defined"));
+            this.error(new String("Command not defined <a href='/play'>play</a>"));
         }
         
         
