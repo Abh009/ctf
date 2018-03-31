@@ -30,7 +30,7 @@ def terminal(request):
 def logout_user(request):
     logout(request)
     return redirect("/")
-    
+
 def home(request):
     return render(request,'index.html',{})
 
@@ -56,4 +56,5 @@ def submit(request):
 
 
 def login(request):
-    return render(request,'login.html',{})
+    logout(request)
+    return redirect("/auth/login/google-oauth2/")
