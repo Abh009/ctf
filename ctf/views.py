@@ -41,22 +41,30 @@ def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
            user = request.user
-           # if already subitted print so
-           submitted = DoneQuestions.objects.get(user_id = user.id)
-           print(submitted)
-           # else submit the answer and if right add as done
-
+           
            print(username)
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
 
+           # if already subitted print so
+           
+        #    submitted = DoneQuestions.objects.get(user_id = user.id)
+           print(submitted)
+           # else submit the answer and if right add as done
+
+
            status = 0
            try:
-               actual_ans = Problems.objects.get(id = problem_id).answer
-               if actual_ans == answer:
-                    status = 1
+               problem = Problems.objects.get(id = problem_id)
            except:
                 return HttpResponse('Invalid Problem ID')    
+            
+           if problem.answer == answer:
+                    status = 1
+           # add as done
+           done_quest = DoneQuestions.objects.create(user_id = user.id,done_quest = problem)
+
+           
            return HttpResponse(str(status))
        else:
            return HttpResponse('404 Not Found')
