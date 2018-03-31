@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt,login_required
 from ctf.models import Problems
 from django.contrib.auth import logout
 # Create your views here.
@@ -35,6 +35,7 @@ def home(request):
     return render(request,'index.html',{})
 
 @csrf_exempt
+@login_required
 def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
