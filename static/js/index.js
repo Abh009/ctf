@@ -120,7 +120,7 @@ jQuery(function($, undefined) {
         greetings: 'Login before start\nUse help for command details and usage.',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
-        width:$(document).width(),
+        width: $(document).outerWidth(),
         prompt: username
     });
 });
