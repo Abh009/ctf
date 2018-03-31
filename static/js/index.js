@@ -47,7 +47,7 @@ jQuery(function($, undefined) {
             
         }
         else if ( command == 'help'){
-            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>"
+            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>\n 6.login    : for logging in\n 7.logout    : for logging out and quit"
             term.echo(help_text);
         }
         else if(command == 'submit'){
@@ -98,6 +98,11 @@ jQuery(function($, undefined) {
         }
         else if ( command == 'login'){
             // perform google authentication
+            window.location.replace("/login/");
+        }
+        else if ( command == 'logout'){
+            // perform google authentication
+            window.location.replace("/logout/");
         }
         else if (command == ''){
             // do nothing
@@ -108,10 +113,10 @@ jQuery(function($, undefined) {
         
         
     }, {
-        greetings: 'use help for command details and usage',
+        greetings: 'Login before start\nUse help for command details and usage.',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
-        prompt: 'foss ~ '
+        prompt: username
     });
 });
 
