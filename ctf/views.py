@@ -9,8 +9,11 @@ from django.contrib.auth import logout
 def problems(request):
     if request.is_ajax():
         user = request.user
-        done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
-        done_q_id = [ x.id for x in list(done_q)]
+        if DoneQuestions.objects.filter(user_id = user.id).exists():
+            done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
+            done_q_id = [ x.id for x in list(done_q)]
+        else:
+            done_q_id = []
         if request.method == 'POST':
             p_id = str(request.POST.get('p_id'))
             try:
