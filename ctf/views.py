@@ -22,7 +22,7 @@ def problems(request):
                return HttpResponse('Invalid Problem ID')    
         
         # if method is get ie: if the request is for just problem titles
-        data = list(Problems.objects.filter(~(pk__in = done_q_id)))
+        data = list(Problems.objects.exclude(pk__in = done_q_id))
         output = ''
         for object in data:
             output = output + str(object.id) + ". " + object.title + "\n"
