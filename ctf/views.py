@@ -62,7 +62,10 @@ def submit(request):
            if problem.answer == answer:
                     status = 1
            # add as done
-           done_q = DoneQuestions.objects.create(user_id = user)
+           if DoneQuestions.objects.filter(user_id = user).exists():
+               done_q = DoneQuestions.objects.get(user_id = user)
+           else:
+               done_q = DoneQuestions.objects.create(user_id = user)
            done_q.done_quest.add(problem)
 
            
