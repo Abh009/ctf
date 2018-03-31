@@ -13,6 +13,6 @@
         "EXPOSE 80",
         "RUN apk del tzdata",  
         "RUN python manage.py collectstatic --noinput",
-        "CMD [\"gunicorn\", \"-b\", \"0.0.0.0:80\", \"hackerprix.wsgi\"]"
+        "CMD [\"gunicorn\", \"-b\", \"0.0.0.0:80\", \"hackprix.wsgi\"]"
     ]
 }
