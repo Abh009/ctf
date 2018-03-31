@@ -68,6 +68,7 @@ jQuery(function($, undefined) {
                     var jq = $.post("/submit/",{p_id:option,answer:value,user:user})
                     .done(function(response){
                         var output;
+                        term.echo(response);
                     
                         if ( response == '1'){
                             output = "\nYou have successfully solved the problem.\n\nGo on to next level";
