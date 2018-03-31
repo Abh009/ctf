@@ -48,3 +48,7 @@ def submit(request):
            return HttpResponse('404 Not Found')
     else:
         return HttpResponse('404 not found')
+
+
+def login(request):
+    return render(request,'login.html',{})
