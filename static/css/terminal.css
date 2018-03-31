@@ -2,6 +2,7 @@
 #terminal{
     color: #0f0;
     font-size: 2vh;
+    margin-bottom: 5vh !important;
 }
 body{
     background-color: #000;

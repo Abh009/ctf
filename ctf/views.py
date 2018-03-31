@@ -33,6 +33,8 @@ def home(request):
 def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
+           username = request.POST.get('user')
+           print(username)
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
 
