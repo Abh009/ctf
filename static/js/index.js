@@ -41,7 +41,12 @@ jQuery(function($, undefined) {
                         var jq = $.post("/problems/",{p_id:p_id})
                         .done(function(response){
                             
-                            term.echo(response);
+                            // term.echo(response);
+                            terminal.echo(response, {
+                                finalize: function(div) {
+                                    div.css("overflow-wrap", "break-word");
+                                }
+                            });
                             
                         })
                         .fail(function(){
@@ -122,7 +127,7 @@ jQuery(function($, undefined) {
         greetings: 'Login before start\nUse help for command details and usage.',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
-        width: 768,
+        width: $(document).outerWidth(),
         prompt: username
     });
 });
