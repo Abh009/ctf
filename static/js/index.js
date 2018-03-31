@@ -63,7 +63,7 @@ jQuery(function($, undefined) {
                 if( ! isNaN(option)){
                     // submit the answer of the question
                     term.pause();
-                    var jq = $.post("/submit/",{p_id:option,answer:value,user:user})
+                    var jq = $.post("/submit/",{p_id:option,answer:value})
                     .done(function(response){
                         var output;
                     
