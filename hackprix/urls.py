@@ -26,7 +26,7 @@ urlpatterns = [
     path('play/',views.terminal),
     path('login/',views.login),
     path('/',views.home),
-    url('', include('social_django.urls', namespace='social')),
+    url('', include('social_django.urls', namespace='social'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
