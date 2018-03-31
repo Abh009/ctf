@@ -24,8 +24,9 @@ urlpatterns = [
     path('problems/',views.problems),
     path('submit/',views.submit),
     path('play/',views.terminal),
-    # path('login/',views.login),
-    path('',views.home),
+    path('login/',views.login),
+    # path('',views.home),
+    path('', include('social_django.urls'), name='social')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
