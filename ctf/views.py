@@ -4,13 +4,21 @@ from ctf.models import Problems
 
 # Create your views here.
 
-
+@csrf_exempt
 def problems(request):
     if request.is_ajax():
+        if request.method == 'POST':
+            p_id = request.POST.get('p_id')
+            try:
+               text = Problems.objects.get(id = p_id).text
+               return HttpResponse(text)
+            except:
+               return HttpResponse('Invalid Problem ID')    
+        # if method is get ie: if the request is for just problem titles
         data = list(Problems.objects.all())
         output = ''
         for object in data:
-            output = output + str(object.id) + ". " + object.text + "\n"
+            output = output + str(object.id) + ". " + object.title + "\n"
         
         output = "Your Pending Questions: \n" + output
         return HttpResponse(output)
@@ -27,7 +35,6 @@ def submit(request):
        if request.method == 'POST':
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
-           print(answer)
 
            status = 0
            try:

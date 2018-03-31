@@ -21,6 +21,30 @@ jQuery(function($, undefined) {
         }
         else if( command == 'show'){
             // show the problem with specific id
+            var len = actual_command.split(" ").length;
+            if ( len != 2){
+                term.error("invalid arguments try help for command details");
+            }
+            else{
+                var p_id = actual_command.split(" ")[1];
+                if( isNaN(p_id)){
+                    term.error("second argument must be the problem id");
+                }
+                else{
+                    if( p_id != ''){
+                        term.pause();
+                        var jq = $.post("http://localhost:8000/problems/",{p_id:p_id})
+                        .done(function(response){
+                            term.echo(response);
+                        })
+                        .fail(function(){
+                            term.echo("connection failed");
+                        });
+                        term.resume();
+                    }
+                }
+            }
+            
         }
         else if ( command == 'help'){
             var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>"
@@ -77,7 +101,7 @@ jQuery(function($, undefined) {
             // do nothing
         }
         else{
-            this.error(new String("Command not defined <a href='/play'>play</a>"));
+            this.error(new String("Command not defined"));
         }
         
         
