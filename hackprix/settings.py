@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'hackprix',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': ALLOWED_HOSTS[1],
+        'HOST': 'srv-captain--mysql',
         'PORT': '',
     }
 }
