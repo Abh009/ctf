@@ -27,7 +27,6 @@ def problems(request):
         for object in data:
             output = output + str(object.id) + ". " + object.title + "\n"
         
-        output = "Your Pending Questions: \n" + output
         return HttpResponse(output)
     return HttpResponse("it worked")
 
@@ -69,12 +68,12 @@ def submit(request):
             
            if problem.answer == answer:
                     status = 1
-           # add as done
-           if DoneQuestions.objects.filter(user_id = user).exists():
-               done_q = DoneQuestions.objects.get(user_id = user)
-           else:
-               done_q = DoneQuestions.objects.create(user_id = user)
-           done_q.done_quest.add(problem)
+                    # add as done
+                    if DoneQuestions.objects.filter(user_id = user).exists():
+                        done_q = DoneQuestions.objects.get(user_id = user)
+                    else:
+                        done_q = DoneQuestions.objects.create(user_id = user)
+                    done_q.done_quest.add(problem)
 
            
            return HttpResponse(str(status))

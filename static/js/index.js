@@ -11,7 +11,12 @@ jQuery(function($, undefined) {
             term.pause();
             var jq = $.get("/problems/")
             .done(function(response){
-                term.echo(response);
+                if ( response == ''){
+                    term.echo("Completed All the available questions...\nJust wait for what's more");
+                }
+                else{
+                    term.echo("Your Pending Questions \n" + response);
+                }
             })
             .fail(function(){
                 term.echo("connection failed");
@@ -75,7 +80,7 @@ jQuery(function($, undefined) {
                             output = response;
                             term.error(output);
                         }
-                        else if( response == '0'){
+                        else if( response == 0){
                             output = "\nIt was wrong\n Think better :) ";
                         }
                     })
