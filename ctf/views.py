@@ -46,18 +46,20 @@ def submit(request):
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
 
-           # if already subitted print so
-           
-        #    submitted = DoneQuestions.objects.get(user_id = user.id)
-        #    print(submitted)
-           # else submit the answer and if right add as done
-
 
            status = 0
            try:
                problem = Problems.objects.get(id = problem_id)
            except:
                 return HttpResponse('Invalid Problem ID')    
+            
+           
+           # if already subitted print so
+           d = DoneQuestions.objects.get(user_id_id = user.id)
+           done_qs = list(d.done_quest.filter())
+
+           if problem in done_qs:
+               return HttpResponse('Already answered')    
             
            if problem.answer == answer:
                     status = 1
