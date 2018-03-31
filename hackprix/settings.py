@@ -57,9 +57,9 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:8000',
+# )
 
 
 ROOT_URLCONF = 'hackprix.urls'
@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'hackprix',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': ALLOWED_HOSTS[0],
+        'HOST': ALLOWED_HOSTS[1],
         'PORT': '',
     }
 }
