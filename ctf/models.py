@@ -21,4 +21,4 @@ class DoneQuestions(models.Model):
     done_quest = models.ManyToManyField(Problems)
 
     def __str__(self):
-        return self.user_id.id
+        return str(self.user_id.username)
