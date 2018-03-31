@@ -19,8 +19,11 @@ jQuery(function($, undefined) {
             term.resume();
 
         }
+        else if( command == 'show'){
+            // show the problem with specific id
+        }
         else if ( command == 'help'){
-            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.submit    : submit the answer of a problem \n    submit <problem_id> <answer>"
+            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>"
             term.echo(help_text);
         }
         else if(command == 'submit'){
@@ -42,17 +45,18 @@ jQuery(function($, undefined) {
                     
                         if ( response == '1'){
                             output = "\nYou have successfully solved the problem.\n\nGo on to next level";
+                            term.echo(output);
                         }
                         else if(isNaN(response)){
                             output = response;
+                            term.error(output);
                         }
                         else{
                             output = "\nIt was wrong\n Think better :) ";
                         }
-                        term.echo(output);
                     })
                     .fail(function(){
-                        term.error("connection failed");
+                        term.error("Something went wrong");
                     });
                     term.resume();
                 }
@@ -65,6 +69,9 @@ jQuery(function($, undefined) {
     
             }
             
+        }
+        else if ( command == 'login'){
+            // perform google authentication
         }
         else if (command == ''){
             // do nothing

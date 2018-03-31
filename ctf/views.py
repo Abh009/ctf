@@ -9,10 +9,8 @@ def problems(request):
     if request.is_ajax():
         data = list(Problems.objects.all())
         output = ''
-        i = 1
         for object in data:
-            output = output + str(i) + ". " + object.text + "\n"
-            i += 1
+            output = output + str(object.id) + ". " + object.text + "\n"
         
         output = "Your Pending Questions: \n" + output
         return HttpResponse(output)
