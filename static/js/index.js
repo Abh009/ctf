@@ -96,7 +96,7 @@ jQuery(function($, undefined) {
         }
         else if ( command == 'login'){
             // perform google authentication
-            window.open("/auth/login/google-oauth2/");
+            window.location.replace("/auth/login/google-oauth2/");
         }
         else if ( command == 'logout'){
             // perform google authentication
