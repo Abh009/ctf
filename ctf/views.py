@@ -63,8 +63,11 @@ def submit(request):
             
            
            # if already subitted print so
-           d = DoneQuestions.objects.get(user_id_id = user.id)
-           done_qs = list(d.done_quest.filter())
+           if DoneQuestions.objects.filter(user_id = user.id).exists():
+                d = DoneQuestions.objects.get(user_id_id = user.id)
+                done_qs = list(d.done_quest.filter())
+            else:
+                done_qs = []
 
            if problem in done_qs:
                return HttpResponse('Already answered')    
