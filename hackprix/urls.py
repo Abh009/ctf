@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.urls import path, include, url
+import social_django 
 
 from ctf import views
 
@@ -26,7 +27,7 @@ urlpatterns = [
     path('play/',views.terminal),
     path('login/',views.login),
     path('',views.home),
-    url('', include('social_django.urls', namespace='social'))
+    path('', social_django.urls, namespace='social'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
