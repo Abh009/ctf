@@ -55,7 +55,7 @@ jQuery(function($, undefined) {
             if( len >= 3){
                 
                 option = actual_command.split(" ")[1];
-                value = actual_command.split(" ").slice(2,len).join(" ");
+                value = actual_command.split(" ").slice(2,len).join(" ").toLowerCase();
                 if ( value.length == 0 ){
                     term.error("not enough parameters try help for command details");
                     return;
