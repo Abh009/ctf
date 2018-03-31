@@ -62,7 +62,8 @@ def submit(request):
            if problem.answer == answer:
                     status = 1
            # add as done
-           done_quest = DoneQuestions.objects.create(user_id = user,done_quest = problem)
+           done_q = DoneQuestions.objects.create(user_id = user)
+           done_q.done_quest.add(problem)
 
            
            return HttpResponse(str(status))
