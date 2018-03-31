@@ -106,7 +106,7 @@ jQuery(function($, undefined) {
         
         
     }, {
-        greetings: '',
+        greetings: 'use help for command details and usage',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
         prompt: 'foss ~ '
