@@ -63,12 +63,10 @@ jQuery(function($, undefined) {
                 if( ! isNaN(option)){
                     // submit the answer of the question
                     term.pause();
-                    var user = '{{ user.id}}';
                     term.echo(user);
                     var jq = $.post("/submit/",{p_id:option,answer:value,user:user})
                     .done(function(response){
                         var output;
-                        term.echo(response);
                     
                         if ( response == '1'){
                             output = "\nYou have successfully solved the problem.\n\nGo on to next level";
@@ -78,7 +76,7 @@ jQuery(function($, undefined) {
                             output = response;
                             term.error(output);
                         }
-                        else{
+                        else if( response == '0'){
                             output = "\nIt was wrong\n Think better :) ";
                         }
                     })

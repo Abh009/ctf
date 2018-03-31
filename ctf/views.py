@@ -8,15 +8,21 @@ from django.contrib.auth import logout
 @csrf_exempt
 def problems(request):
     if request.is_ajax():
+        user = request.user
+        done_q = DoneQuestions.objects.filter(user_id = user.id)
+        done_q_id = [ x.id for x in list(done_q)]
         if request.method == 'POST':
-            p_id = request.POST.get('p_id')
+            p_id = str(request.POST.get('p_id'))
             try:
+               if p_id in done_q_id:
+                   return HttpResponse('Already Answered')    
                text = Problems.objects.get(id = p_id).text
                return HttpResponse(text)
             except:
                return HttpResponse('Invalid Problem ID')    
+        
         # if method is get ie: if the request is for just problem titles
-        data = list(Problems.objects.all())
+        data = list(Problems.objects.filter(~(pk__in = done_q_id)))
         output = ''
         for object in data:
             output = output + str(object.id) + ". " + object.title + "\n"
