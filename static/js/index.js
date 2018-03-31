@@ -9,7 +9,7 @@ jQuery(function($, undefined) {
         }
         else if ( command == 'problems'){
             term.pause();
-            var jq = $.get("http://localhost:8000/problems/")
+            var jq = $.get("/problems/")
             .done(function(response){
                 term.echo(response);
             })
@@ -33,7 +33,7 @@ jQuery(function($, undefined) {
                 else{
                     if( p_id != ''){
                         term.pause();
-                        var jq = $.post("http://localhost:8000/problems/",{p_id:p_id})
+                        var jq = $.post("/problems/",{p_id:p_id})
                         .done(function(response){
                             term.echo(response);
                         })
@@ -63,7 +63,7 @@ jQuery(function($, undefined) {
                 if( ! isNaN(option)){
                     // submit the answer of the question
                     term.pause();
-                    var jq = $.post("http://localhost:8000/submit/",{p_id:option,answer:value})
+                    var jq = $.post("/submit/",{p_id:option,answer:value})
                     .done(function(response){
                         var output;
                     
