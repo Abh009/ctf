@@ -98,6 +98,10 @@ jQuery(function($, undefined) {
             // perform google authentication
             window.open("/auth/login/google-oauth2/");
         }
+        else if ( command == 'logout'){
+            // perform google authentication
+            window.open("/logout/");
+        }
         else if (command == ''){
             // do nothing
         }

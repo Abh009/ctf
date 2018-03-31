@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from ctf.models import Problems
-
+from django.contrib.auth import logout
 # Create your views here.
 
 @csrf_exempt
@@ -26,6 +26,11 @@ def problems(request):
 
 def terminal(request):
     return render(request,'terminal.html',{})
+
+def logout_user(request):
+    logout(request)
+    return redirect("/")
+    
 def home(request):
     return render(request,'index.html',{})
 
