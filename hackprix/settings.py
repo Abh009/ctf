@@ -97,7 +97,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'srv-captain--mysql',
-        'PORT': '',
+        'PORT': '3306',
     }
 }
 
