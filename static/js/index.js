@@ -40,7 +40,7 @@ jQuery(function($, undefined) {
                         term.pause();
                         var jq = $.post("/problems/",{p_id:p_id})
                         .done(function(response){
-                            term.echo('<p style="overflow-wrap: break-word">' + response + '<p>',{raw:true});
+                            term.echo('<p style="overflow-wrap: break-word">' + response + '<p>');
                         })
                         .fail(function(){
                             term.echo("connection failed");
