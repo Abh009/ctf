@@ -42,7 +42,7 @@ def submit(request):
        if request.method == 'POST':
            user = request.user
            
-           print(username)
+        #    print(username)
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
 
