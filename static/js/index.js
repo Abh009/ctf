@@ -41,13 +41,7 @@ jQuery(function($, undefined) {
                         var jq = $.post("/problems/",{p_id:p_id})
                         .done(function(response){
                             
-                            // term.echo(response);
-                            terminal.echo(response, {
-                                finalize: function(div) {
-                                    div.css("overflow-wrap", "break-word");
-                                    div.text(response);
-                                }
-                            });
+                            term.echo(response);
                             
                         })
                         .fail(function(){
