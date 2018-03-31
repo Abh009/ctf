@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls import url
+from django.urls import path, include, re_path
+# from django.conf.urls import url
 import social_django 
 
 from ctf import views
@@ -28,7 +28,7 @@ urlpatterns = [
     path('play/',views.terminal),
     path('login/',views.login,name="login"),
     path('',views.home,name="home"),
-    url(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
+    re_path(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
 ]
 
 urlpatterns += staticfiles_urlpatterns()
