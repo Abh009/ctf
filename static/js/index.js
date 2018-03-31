@@ -111,10 +111,10 @@ jQuery(function($, undefined) {
         
         
     }, {
-        greetings: 'use help for command details and usage',
+        greetings: 'Use help for command details and usage.',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
-        prompt: 'foss ~ '
+        prompt: username || 'foss ~ '
     });
 });
 

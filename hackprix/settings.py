@@ -170,7 +170,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.associate_by_email',
 )
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'play'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='1015845108958-8s3rdtljibrv5agpps5stjceo3gbvegm.apps.googleusercontent.com'  #Paste CLient Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '1rSGcByWItElehcysA4yW9tb'
