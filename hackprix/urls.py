@@ -25,6 +25,7 @@ urlpatterns = [
     path('submit/',views.submit),
     path('play/',views.terminal),
     path('login/',views.login),
+    url('', include('social_django.urls', namespace='social'))
     path('',views.home),
 
 ]
