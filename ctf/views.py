@@ -49,7 +49,7 @@ def submit(request):
            # if already subitted print so
            
         #    submitted = DoneQuestions.objects.get(user_id = user.id)
-           print(submitted)
+        #    print(submitted)
            # else submit the answer and if right add as done
 
 
