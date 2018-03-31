@@ -66,7 +66,7 @@ def submit(request):
            if DoneQuestions.objects.filter(user_id = user.id).exists():
                 d = DoneQuestions.objects.get(user_id_id = user.id)
                 done_qs = list(d.done_quest.filter())
-            else:
+           else:
                 done_qs = []
 
            if problem in done_qs:
