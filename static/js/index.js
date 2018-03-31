@@ -100,7 +100,7 @@ jQuery(function($, undefined) {
         }
         else if ( command == 'logout'){
             // perform google authentication
-            window.open("/logout/");
+            window.location.replace("/logout/");
         }
         else if (command == ''){
             // do nothing
