@@ -26,7 +26,6 @@ urlpatterns = [
     path('play/',views.terminal),
     # path('login/',views.login),
     path('',views.home),
-
 ]
 
 urlpatterns += staticfiles_urlpatterns()
