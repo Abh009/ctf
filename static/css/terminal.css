@@ -1,4 +1,6 @@
 #terminal{
-    color: #0f0;
     font-size: 1.5vh;
+}
+html *{
+    color: #0f0;
 }
