@@ -1,45 +1,93 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>HACKPRIX | Online Treasure Hunt By FOSS CLUB GECT</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="/static/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/static/css/main.css" />
-		<link rel="icon" href="/static/images/favicon.jpeg">
-		<!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="/static/css/ie9.css" /><![endif]-->
-	</head>
-	<body class="loading">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
 
-				<!-- Header -->
-					<header id="header">
-						<h1>HACKPRIX</h1>
-						<p> Find out the Ultimate Geek in You</p>
-						<p> An Onine Treasure hunt by FOSS CLUB GECT</p>
-						<nav>
-							<ul>
-								<li><a href="/play" class="icon fa-play"><span class="label">Start now</span></a></li>
-							</ul>
-						</nav>
-					</header>
+.bgimg {
+    background-image: url('https://cryptocurrencynews.com/wp-content/uploads/sites/3/2018/01/Hack-678x381.png');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
 
-				<!-- Footer -->
-					<footer id="footer">
-						<span class="copyright">&copy; Design: <a href="http://fossgect.club">FOSS CLUB GECT</a>.</span>
-					</footer>
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
 
-			</div>
-		</div>
-		<!--[if lte IE 8]><script src="/static/js/ie/respond.min.js"></script><![endif]-->
-		<script>
-			window.onload = function() { document.body.className = ''; }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <img src="/static/images/favicon.jpeg" width="200" height="200">
+  </div>
+  <div class="middle">
+    <h1>The Hack begins in</h1>
+    <hr>
+    <p id="demo" style="font-size:30px"></p>
+  </div>
+  <div class="bottomleft">
+    <p>FOSS CLUB GECT</p>
+  </div>
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Apr 1, 2018 00:00:00").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
 </html>
