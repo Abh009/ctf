@@ -114,7 +114,7 @@ jQuery(function($, undefined) {
         greetings: 'Use help for command details and usage.',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
-        prompt: username || 'foss ~ '
+        prompt: username
     });
 });
 
