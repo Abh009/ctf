@@ -82,6 +82,7 @@ jQuery(function($, undefined) {
                         }
                         else if( response == 0){
                             output = "\nIt was wrong\n Think better :) ";
+                            term.echo(output);
                         }
                     })
                     .fail(function(){
