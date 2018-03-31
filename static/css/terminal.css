@@ -1,4 +1,27 @@
+
 #terminal{
     color: #0f0;
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
+body{
+    background-color: #000;
+}
+
+.ascii{
+    padding-top: 2vh;
+    margin-left:25vw;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .ascii{
+        margin-left:5vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ascii{
+        margin-left:none;
+    }
+}
+

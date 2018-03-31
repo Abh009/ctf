@@ -29,14 +29,22 @@ jQuery(function($, undefined) {
                 
                 option = actual_command.split(" ")[1];
                 value = actual_command.split(" ").slice(2,len).join(" ");
+                if ( value.length == 0 ){
+                    term.error("not enough parameters try help for command details");
+                    return;
+                }
                 if( ! isNaN(option)){
                     // submit the answer of the question
                     term.pause();
                     var jq = $.post("http://localhost:8000/submit/",{p_id:option,answer:value})
                     .done(function(response){
                         var output;
+                    
                         if ( response == '1'){
                             output = "\nYou have successfully solved the problem.\n\nGo on to next level";
+                        }
+                        else if(isNaN(response)){
+                            output = response;
                         }
                         else{
                             output = "\nIt was wrong\n Think better :) ";
@@ -44,19 +52,22 @@ jQuery(function($, undefined) {
                         term.echo(output);
                     })
                     .fail(function(){
-                        term.echo("connection failed");
+                        term.error("connection failed");
                     });
                     term.resume();
                 }
                 else{
-                    term.echo("Second parameter should be a number");
+                    term.error("Second parameter should be a number");
                 }
             }
             else{
-                term.echo("not enough parameters try help for command details");
+                term.error("not enough parameters try help for command details");
     
             }
             
+        }
+        else if (command == ''){
+            // do nothing
         }
         else{
             this.error(new String("Command not defined"));
@@ -64,9 +75,12 @@ jQuery(function($, undefined) {
         
         
     }, {
-        greetings: 'FOSS ONLINE TREASURE HUNT',
+        greetings: '',
         name: 'js_demo',
-        height: $(document).height(),
+        height: $(document).height()-$(".ascii").outerHeight(),
         prompt: 'foss ~ '
     });
 });
+
+
+
