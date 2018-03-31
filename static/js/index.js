@@ -45,6 +45,7 @@ jQuery(function($, undefined) {
                             terminal.echo(response, {
                                 finalize: function(div) {
                                     div.css("overflow-wrap", "break-word");
+                                    div.text(response);
                                 }
                             });
                             
