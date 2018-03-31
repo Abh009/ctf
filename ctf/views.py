@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from ctf.models import Problems
+from ctf.models import Problems,DoneQuestions
 from django.contrib.auth import logout
 # Create your views here.
 
@@ -40,7 +40,12 @@ def home(request):
 def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
-           username = request.POST.get('user')
+           user = request.user
+           # if already subitted print so
+           submitted = DoneQuestions.objects.get(user_id = user.id)
+           print(submitted)
+           # else submit the answer and if right add as done
+
            print(username)
            problem_id = str(request.POST.get('p_id'))
            answer = str(request.POST.get('answer'))
