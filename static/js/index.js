@@ -128,7 +128,7 @@ jQuery(function($, undefined) {
             //     console.log(" ");
             // });
             for( var o in jq){
-                console.log(o.username);
+                console.log(o);
                 // console.log(o.point)
             }
         }
