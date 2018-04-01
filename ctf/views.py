@@ -112,7 +112,7 @@ def leaderboard(request):
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1),reverse=True))
-        i = 0
+        i = 1
         output = ''
         for k,v in sorted_u.items():
             temp =str(i) + '.   ' + str(k) + '   :   ' + str(v)
