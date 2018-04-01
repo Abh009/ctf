@@ -13,7 +13,7 @@ jQuery(function($, undefined) {
             var jq = $.get("/problems/")
             .done(function(response){
                 if ( response == ''){
-                    term.echo("Completed All the available questions...\nJust wait for what's more");
+                    term.echo("Completed All the available questions...\n More to come!");
                 }
                 else{
                     term.echo(response);
@@ -29,12 +29,12 @@ jQuery(function($, undefined) {
             // show the problem with specific id
             var len = actual_command.split(" ").length;
             if ( len != 2){
-                term.error("invalid arguments try help for command details");
+                term.error("Invalid arguments try help for command details");
             }
             else{
                 var p_id = actual_command.split(" ")[1];
                 if( isNaN(p_id)){
-                    term.error("second argument must be the problem id");
+                    term.error("Second argument must be the problem id");
                 }
                 else{
                     if( p_id != ''){
@@ -53,7 +53,7 @@ jQuery(function($, undefined) {
                             
                         })
                         .fail(function(){
-                            term.echo("connection failed");
+                            term.echo("Connection failed");
                         });
                         term.resume();
                     }
@@ -73,7 +73,7 @@ jQuery(function($, undefined) {
                 value = actual_command.split(" ").slice(2,len).join("").toLowerCase();
                 console.log(value);
                 if ( value.length == 0 ){
-                    term.error("not enough parameters try help for command details");
+                    term.error("Not enough parameters try help for command details");
                     return;
                 }
                 if( ! isNaN(option)){
@@ -92,7 +92,7 @@ jQuery(function($, undefined) {
                             term.error(output);
                         }
                         else if( response == 0){
-                            output = "\nIt was wrong\n Think better :) ";
+                            output = "\n Wrong answer\n Think better :) ";
                             term.echo(output);
                         }
                     })
@@ -106,7 +106,7 @@ jQuery(function($, undefined) {
                 }
             }
             else{
-                term.error("not enough parameters try help for command details");
+                term.error("Not enough parameters try help for command details");
     
             }
             
@@ -126,7 +126,7 @@ jQuery(function($, undefined) {
                 term.echo(result);
             })
             .fail(function () { 
-                term.echo("something went wrong");
+                term.echo("Something went wrong");
              });
             
             // $.each(jq, function () {
