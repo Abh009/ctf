@@ -119,10 +119,14 @@ jQuery(function($, undefined) {
             window.location.replace("/logout/");
         }
         else if( command == 'leaderboard'){
-            var jq = $.get("/leaderboard/")   
+            var jq = $.get("/leaderboard/")
+            var result = $.parseJSON(jq);
+            $.each(result, function(k, v) {
+            term.echo(k + ' has points ' + v);
+            });   
             // term.echo();
-            var str = JSON.stringify(jq, null, 2); // spacing level = 2
-            term.echo(str);
+            //var str = JSON.stringify(jq, null, 2); // spacing level = 2
+            //term.echo(str);
         }
         else if (command == ''){
             // do nothing
