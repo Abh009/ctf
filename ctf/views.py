@@ -111,7 +111,15 @@ def leaderboard(request):
         done_qs = list(DoneQuestions.objects.all())
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
-        sorted_u = sorted(u.items(), key=operator.itemgetter(1))
-        return JsonResponse(dict(sorted_u))
+        sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1)))
+        data = {}
+        temp = {}
+        i = 0
+        for k,v in sorted_u.items():
+            temp['username'] = k
+            temp['point'] = v
+            data[i] = temp
+            i += 1
+        return JsonResponse(data)
     else:
         return HttpResponse("Bad Gateway")
