@@ -123,15 +123,10 @@ jQuery(function($, undefined) {
             term.pause();
             var jq = $.get("/leaderboard/")
             .done(function(result){
-                
-                $(result).each(function(key,object){
-                    $(object).each(function (index,value) {
-                            term.echo(value.username);
-                      });
-                });
+                term.echo(result);
             })
             .fail(function () { 
-
+                term.echo("something went wrong");
              });
             
             // $.each(jq, function () {

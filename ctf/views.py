@@ -112,14 +112,12 @@ def leaderboard(request):
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1)))
-        data = {}
         i = 0
+        output = ''
         for k,v in sorted_u.items():
-            temp = {}
-            temp['username'] = k
-            temp['point'] = v
-            data[i] = temp
+            temp =str(i) + k + '   :   ' + v
+            output +=temp + '\n'
             i += 1
-        return JsonResponse(data)
+        return HttpResponse(output)
     else:
         return HttpResponse("Bad Gateway")
