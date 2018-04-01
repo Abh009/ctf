@@ -113,9 +113,9 @@ def leaderboard(request):
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1)))
         data = {}
-        temp = {}
         i = 0
         for k,v in sorted_u.items():
+            temp = {}
             temp['username'] = k
             temp['point'] = v
             data[i] = temp
