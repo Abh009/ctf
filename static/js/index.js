@@ -62,7 +62,7 @@ jQuery(function($, undefined) {
             
         }
         else if ( command == 'help'){
-            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>\n 6.login    : for logging in\n 7.logout    : for logging out and quit"
+            var help_text = "Usage: \n command [options] [value] \n\n commands : \n 1.help   : to see this help message\n 2.about   : displays event information\n 3.problems    : displays the pending problems to solve\n 4.show     : show the full problem with the specified id\n     show <problem_id>\n 5.submit    : submit the answer of a problem \n     submit <problem_id> <answer>\n 6.login    : for logging in\n 7.logout    : for logging out and quit\n 8.leaderboard   : to know your progress"
             term.echo(help_text);
         }
         else if(command == 'submit'){
@@ -152,7 +152,7 @@ jQuery(function($, undefined) {
         
         
     }, {
-        greetings: 'Login before start\nUse help for command details and usage.',
+        greetings: 'Login before start\nUse help for command details and usage.\nCheckout the leaderboard to know your position',
         name: 'js_demo',
         height: $(document).height()-$(".ascii").outerHeight(),
         width: $(document).outerWidth(),
