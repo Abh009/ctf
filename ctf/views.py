@@ -115,7 +115,7 @@ def leaderboard(request):
         i = 0
         output = ''
         for k,v in reversed(sorted_u).items():
-            temp =str(i) + '.   ' str(k) + '   :   ' + str(v)
+            temp =str(i) + '.   ' + str(k) + '   :   ' + str(v)
             output +=temp + '\n'
             i += 1
         return HttpResponse(output)
