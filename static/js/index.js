@@ -71,6 +71,7 @@ jQuery(function($, undefined) {
                 
                 option = actual_command.split(" ")[1];
                 value = actual_command.split(" ").slice(2,len).join("").toLowerCase();
+                console.log(value);
                 if ( value.length == 0 ){
                     term.error("not enough parameters try help for command details");
                     return;
@@ -119,9 +120,14 @@ jQuery(function($, undefined) {
             window.location.replace("/logout/");
         }
         else if( command == 'leaderboard'){
-            var jq = $.get("/leaderboard/")   
+            var jq = $.get("/leaderboard/")
+            // var result = $.parseJSON(jq);
+            // $.each(result, function(k, v) {
+            // alert(k + ' has points ' + v.toString());
+            // });   
             // term.echo();
-            
+            //var str = JSON.stringify(jq, null, 2); // spacing level = 2
+            //term.echo(str);
         }
         else if (command == ''){
             // do nothing

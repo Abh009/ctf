@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from ctf.models import Problems,DoneQuestions
 from django.contrib.auth import logout
-import operator
+import operator,json
 # Create your views here.
 
 @csrf_exempt
@@ -108,9 +108,14 @@ def leaderboard(request):
     if request.is_ajax():
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
-        done_qs = list(DoneQuestions.objects.all())
+        done_qs = list(DoneQuestions.objects.all().sort)
         # u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
-        [{ob} for object in done_qs]
+        data = []
+        temp = {}
+        for object in done_qs:
+            temp['username'] = object.user_id.username
+            temp['points'] = len(object.user.done_quest.filter())
+            data.append(temp)
         sorted_u = sorted(u.items(), key=operator.itemgetter(1))
         return JsonResponse(dict(sorted_u))
     else:
