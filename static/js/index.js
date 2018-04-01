@@ -65,7 +65,6 @@ jQuery(function($, undefined) {
                 
                 option = actual_command.split(" ")[1];
                 value = actual_command.split(" ").slice(2,len).join("").toLowerCase();
-                term.echo(value);
                 if ( value.length == 0 ){
                     term.error("not enough parameters try help for command details");
                     return;
