@@ -121,8 +121,18 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             term.pause();
-            var jq = $.getJSON("/leaderboard/");
-            var count = Object.keys(jq).length;
+            var jq = $.get("/leaderboard/")
+            .done(function(result){
+                $(result).each(function(username,point){
+                    term.echo(username);
+                    term.echo(":");
+                    term.echo(point);
+                });
+            })
+            .fail(function () { 
+
+             });
+            
             // $.each(jq, function () {
             //     console.log("First Name: " + this.username);
             //     console.log("Last Name: " + this.point);
