@@ -121,16 +121,11 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
-            console.log(jq);
-            var result = JSON.parse(jq);
-            // var employees = {};
-
-            // for (var i = 0, emp; i < result.length; i++) {
-            // emp = result[i];
-            // employees[ emp.id ] = emp;
-            // }
-            
-            console.log(result);
+            $.each(object, function (item) {
+                term.echo(object.username);
+                term.echo(" :  ");
+                term.echo(object.point);
+              });
         }
         else if (command == ''){
             // do nothing
