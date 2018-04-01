@@ -118,6 +118,9 @@ jQuery(function($, undefined) {
             // perform google authentication
             window.location.replace("/logout/");
         }
+        else if( command == 'leaderboard'){
+            var jq = $.get("/leaderboard/")   
+        }
         else if (command == ''){
             // do nothing
         }
