@@ -120,7 +120,8 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")   
-            term.echo(jq);
+            // term.echo();
+            var str = JSON.stringify(jq, null, 2); // spacing level = 2
         }
         else if (command == ''){
             // do nothing
