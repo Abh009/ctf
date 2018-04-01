@@ -122,7 +122,7 @@ jQuery(function($, undefined) {
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
             var count = Object.keys(jq).length;
-            $.each(myObjects, function () {
+            $.each(jq, function () {
                 console.log("First Name: " + this.username);
                 console.log("Last Name: " + this.point);
                 console.log(" ");
