@@ -9,7 +9,7 @@ from django.contrib.auth import logout
 def problems(request):
     if request.is_ajax():
         user = request.user
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return HttpResponse("Login required")
         if DoneQuestions.objects.filter(user_id = user.id).exists():
             done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
@@ -47,7 +47,7 @@ def home(request):
 
 @csrf_exempt
 def submit(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
             return HttpResponse("Login required")
     if request.is_ajax():
        if request.method == 'POST':
