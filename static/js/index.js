@@ -121,6 +121,7 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
+            console.log(jq);
             var result = JSON.parse(jq);
             // var employees = {};
 
@@ -128,7 +129,7 @@ jQuery(function($, undefined) {
             // emp = result[i];
             // employees[ emp.id ] = emp;
             // }
-            console.log(jq);
+            
             console.log(result);
         }
         else if (command == ''){
