@@ -82,7 +82,7 @@ def submit(request):
            if problem in done_qs:
                return HttpResponse('Already answered')    
             
-           if problem.answer == lower(answer):
+           if problem.answer == answer.lower():
                     status = 1
                     # add as done
                     if DoneQuestions.objects.filter(user_id = user).exists():
