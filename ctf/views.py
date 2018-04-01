@@ -6,11 +6,10 @@ from django.contrib.auth import logout
 # Create your views here.
 
 @csrf_exempt
-@login_required(login_redirect_url='/login/')
 def problems(request):
     if request.is_ajax():
         user = request.user
-        if user == '':
+        if request.user.is_authenticated():
             return HttpResponse("Login required")
         if DoneQuestions.objects.filter(user_id = user.id).exists():
             done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
@@ -47,9 +46,8 @@ def home(request):
     return render(request,'index.html',{})
 
 @csrf_exempt
-@login_required(login_redirect_url='/login/')
 def submit(request):
-    if request.user == '':
+    if request.user.is_authenticated():
             return HttpResponse("Login required")
     if request.is_ajax():
        if request.method == 'POST':
