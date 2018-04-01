@@ -120,7 +120,7 @@ jQuery(function($, undefined) {
             window.location.replace("/logout/");
         }
         else if( command == 'leaderboard'){
-            var jq = $.get("/leaderboard/");
+            var jq = $.getJSON("/leaderboard/");
             var count = Object.keys(jq).length;
             // $.each(jq, function () {
             //     console.log("First Name: " + this.username);
@@ -130,9 +130,9 @@ jQuery(function($, undefined) {
             
             var t;
             for ( var i = 0; i < count; i++){
-                term.echo(jq.responseJSON[i].username);
+                term.echo(jq['responseJSON'][i].username);
                 term.echo("    :    ");
-                term.echo(jq.responseJSON[i].point);
+                term.echo(jq['responseJSON'][i].point);
             }
         }
         else if (command == ''){
