@@ -108,7 +108,7 @@ def leaderboard(request):
     if request.is_ajax():
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
-        done_qs = list(DoneQuestions.objects.all())
+        done_qs = list(DoneQuestions.objects.filter(user_id__is_staff = False))
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1),reverse=True))
