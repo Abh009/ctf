@@ -120,8 +120,7 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")   
-            var l = Array(jq);
-            console.log(l);
+            term.echo(jq);
         }
         else if (command == ''){
             // do nothing
