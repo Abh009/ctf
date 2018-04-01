@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from ctf.models import Problems,DoneQuestions
 from django.contrib.auth import logout
+import operator
 # Create your views here.
 
 @csrf_exempt
@@ -101,3 +102,15 @@ def submit(request):
 def login(request):
     logout(request)
     return redirect("/auth/login/google-oauth2/")
+
+
+def leaderboard(request):
+    if request.is_ajax():
+        if not request.user.is_authenticated:
+            return HttpResponse("Login required")
+        done_qs = list(DoneQuestions.objects.all())
+        u = { object.user.username:len(object.done_quest.filter()) for object in done_qs}
+        sorted_u = sorted(u.items(), key=operator.itemgetter(1))
+        return JsonResponse(dict(sorted_u))
+    else:
+        return HttpResponse("Bad Gateway")
