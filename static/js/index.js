@@ -9,6 +9,7 @@ jQuery(function($, undefined) {
         }
         else if ( command == 'problems'){
             term.pause();
+            
             var jq = $.get("/problems/")
             .done(function(response){
                 if ( response == ''){

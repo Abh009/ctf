@@ -6,7 +6,7 @@ from django.contrib.auth import logout
 # Create your views here.
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@login_required(login_redirect_url='/login/')
 def problems(request):
     if request.is_ajax():
         user = request.user
@@ -47,7 +47,7 @@ def home(request):
     return render(request,'index.html',{})
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@login_required(login_redirect_url='/login/')
 def submit(request):
     if request.user == '':
             return HttpResponse("Login required")
