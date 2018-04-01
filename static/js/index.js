@@ -128,6 +128,7 @@ jQuery(function($, undefined) {
             // emp = result[i];
             // employees[ emp.id ] = emp;
             // }
+            console.log(jq);
             console.log(result);
         }
         else if (command == ''){
