@@ -120,20 +120,19 @@ jQuery(function($, undefined) {
             window.location.replace("/logout/");
         }
         else if( command == 'leaderboard'){
-            var jq = $.get("/leaderboard/")
+            var jq = $.get("/leaderboard/");
             var count = Object.keys(jq).length;
             // $.each(jq, function () {
             //     console.log("First Name: " + this.username);
             //     console.log("Last Name: " + this.point);
             //     console.log(" ");
             // });
-            jq = jq.responseJSON;
+            
             var t;
             for ( var i = 0; i < count; i++){
-                t = jq[i];
-                term.echo(t.username);
+                term.echo(jq.responseJSON[i].username);
                 term.echo("    :    ");
-                term.echo(t.point);
+                term.echo(jq.responseJSON[i].point);
             }
         }
         else if (command == ''){
