@@ -123,6 +123,7 @@ jQuery(function($, undefined) {
             term.pause();
             var jq = $.get("/leaderboard/")
             .done(function(result){
+                term.echo(result[0]);
                 $(result).each(function(key,object){
                     term.echo(object.username + ":" + object.point);
                 });
