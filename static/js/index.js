@@ -127,9 +127,13 @@ jQuery(function($, undefined) {
             //     console.log("Last Name: " + this.point);
             //     console.log(" ");
             // });
-            for( var o in jq){
-                console.log(o);
-                // console.log(o.point)
+            jq = jq.responseJSON;
+            var t;
+            for ( var i = 0; i < count; i++){
+                t = jq[i];
+                term.echo(t.username);
+                term.echo("    :    ");
+                term.echo(t.point);
             }
         }
         else if (command == ''){
