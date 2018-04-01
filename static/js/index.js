@@ -16,7 +16,7 @@ jQuery(function($, undefined) {
                     term.echo("Completed All the available questions...\nJust wait for what's more");
                 }
                 else{
-                    term.echo("Your Pending Questions \n" + response);
+                    term.echo(response);
                 }
             })
             .fail(function(){

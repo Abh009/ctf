@@ -31,9 +31,11 @@ def problems(request):
         output = ''
         for object in data:
             output = output + str(object.id) + ". " + object.title + "\n"
+        if output == '':
+            return HttpResponse('')
         
-        return HttpResponse(output)
-    return HttpResponse("it worked")
+        return HttpResponse("Your Pending Questions: \n" + output)
+    return HttpResponse("Bad Gateway")
 
 def terminal(request):
     return render(request,'terminal.html',{})
