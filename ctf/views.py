@@ -108,10 +108,10 @@ def leaderboard(request):
     if request.is_ajax():
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
-        done_qs = list(DoneQuestions.objects.all().order_by('done_quest__count'))
-        # u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
+        done_qs = list(DoneQuestions.objects.all())
+        u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
-        # sorted_u = sorted(u.items(), key=operator.itemgetter(1))
-        return JsonResponse(done_qs)
+        sorted_u = sorted(u.items(), key=operator.itemgetter(1))
+        return JsonResponse(dict(sorted_u))
     else:
         return HttpResponse("Bad Gateway")

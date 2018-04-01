@@ -121,13 +121,14 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
-            // var result = $.parseJSON(jq);
-            // $.each(result, function(k, v) {
-            // alert(k + ' has points ' + v.toString());
-            // });   
-            // term.echo();
-            //var str = JSON.stringify(jq, null, 2); // spacing level = 2
-            //term.echo(str);
+            var result = JSON.parse(jq);
+            // var employees = {};
+
+            // for (var i = 0, emp; i < result.length; i++) {
+            // emp = result[i];
+            // employees[ emp.id ] = emp;
+            // }
+            console.log(result);
         }
         else if (command == ''){
             // do nothing
