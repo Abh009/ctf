@@ -42,7 +42,8 @@ jQuery(function($, undefined) {
                         var jq = $.post("/problems/",{p_id:p_id})
                         .done(function(response){
                             
-                            term.echo(response);
+                            term.echo('<p style="overflow-wrap: break-word">' + response.text + '</p>',{raw:true});
+                            term.echo('<p style="overflow-wrap: break-word">' + response.url + '</p>',{raw:true}')
                             
                         })
                         .fail(function(){

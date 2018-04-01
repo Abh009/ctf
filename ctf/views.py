@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from ctf.models import Problems,DoneQuestions
 from django.contrib.auth import logout
 # Create your views here.
@@ -22,7 +23,8 @@ def problems(request):
                if p_id in done_q_id:
                    return HttpResponse('Already Answered')    
                text = Problems.objects.get(id = p_id).text
-               return HttpResponse(text)
+               url =  Problems.objects.get(id = p_id).url
+               return JsonResponse({'text':text,'url':url})
             except:
                return HttpResponse('Invalid Problem ID')    
         
