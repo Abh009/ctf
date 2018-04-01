@@ -43,7 +43,7 @@ jQuery(function($, undefined) {
                         .done(function(response){
                             
                             term.echo('<p style="overflow-wrap: break-word">' + response.text + '</p>',{raw:true});
-                            term.echo('<p style="overflow-wrap: break-word">' + response.url + '</p>',{raw:true});
+                            term.echo(response.url);
                             
                         })
                         .fail(function(){
@@ -64,7 +64,8 @@ jQuery(function($, undefined) {
             if( len >= 3){
                 
                 option = actual_command.split(" ")[1];
-                value = actual_command.split(" ").slice(2,len).join(" ").toLowerCase();
+                value = actual_command.split(" ").slice(2,len).join("").toLowerCase();
+                term.echo(value);
                 if ( value.length == 0 ){
                     term.error("not enough parameters try help for command details");
                     return;
