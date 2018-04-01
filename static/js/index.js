@@ -126,7 +126,7 @@ jQuery(function($, undefined) {
                 
                 $(result).each(function(key,object){
                     $(object).each(function (index,value) {
-                            term.echo(value);
+                            term.echo(value.username);
                       });
                 });
             })
