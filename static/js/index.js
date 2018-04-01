@@ -43,7 +43,7 @@ jQuery(function($, undefined) {
                         .done(function(response){
                             
                             term.echo('<p style="overflow-wrap: break-word">' + response.text + '</p>',{raw:true});
-                            term.echo('<p style="overflow-wrap: break-word">' + response.url + '</p>',{raw:true}')
+                            term.echo('<p style="overflow-wrap: break-word">' + response.url + '</p>',{raw:true});
                             
                         })
                         .fail(function(){
