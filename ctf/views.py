@@ -24,6 +24,8 @@ def problems(request):
                    return HttpResponse('Already Answered')    
                text = Problems.objects.get(id = p_id).text
                url =  Problems.objects.get(id = p_id).url
+               if url == '' or url == None:
+                   url = ''
                return JsonResponse({'text':text,'url':url})
             except:
                return HttpResponse('Invalid Problem ID')    
