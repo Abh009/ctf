@@ -122,14 +122,11 @@ jQuery(function($, undefined) {
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
             var count = Object.keys(jq).length;
-            console.log(count);
-            for( var i=0; i<count; i++)
-            {
-                object = jq[i.toString()];
-                term.echo(object.username);
-                term.echo("   :   ");
-                term.echo(object.point);
-            }
+            $.each(myObjects, function () {
+                console.log("First Name: " + this.username);
+                console.log("Last Name: " + this.point);
+                console.log(" ");
+            });
         }
         else if (command == ''){
             // do nothing
