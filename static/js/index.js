@@ -121,8 +121,9 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
-            console.log(jq.length);
-            for( var i=0; i<jq.length; i++)
+            var count = Object.keys(jq).length;
+            console.log(count);
+            for( var i=0; i<count; i++)
             {
                 object = jq[i];
                 term.echo(object.username);
