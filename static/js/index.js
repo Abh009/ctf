@@ -122,11 +122,15 @@ jQuery(function($, undefined) {
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
             var count = Object.keys(jq).length;
-            $.each(jq, function () {
-                console.log("First Name: " + this.username);
-                console.log("Last Name: " + this.point);
-                console.log(" ");
-            });
+            // $.each(jq, function () {
+            //     console.log("First Name: " + this.username);
+            //     console.log("Last Name: " + this.point);
+            //     console.log(" ");
+            // });
+            for( var o in jq){
+                console.log(o.username);
+                // console.log(o.point)
+            }
         }
         else if (command == ''){
             // do nothing
