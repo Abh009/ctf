@@ -125,7 +125,7 @@ jQuery(function($, undefined) {
             console.log(count);
             for( var i=0; i<count; i++)
             {
-                object = jq[i];
+                object = jq[i.toString()];
                 term.echo(object.username);
                 term.echo("   :   ");
                 term.echo(object.point);
