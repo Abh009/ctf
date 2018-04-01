@@ -122,6 +122,7 @@ jQuery(function($, undefined) {
             var jq = $.get("/leaderboard/")   
             // term.echo();
             var str = JSON.stringify(jq, null, 2); // spacing level = 2
+            term.echo(str);
         }
         else if (command == ''){
             // do nothing
