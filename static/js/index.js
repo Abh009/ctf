@@ -120,6 +120,7 @@ jQuery(function($, undefined) {
             window.location.replace("/logout/");
         }
         else if( command == 'leaderboard'){
+            term.pause();
             var jq = $.getJSON("/leaderboard/");
             var count = Object.keys(jq).length;
             // $.each(jq, function () {
@@ -134,6 +135,7 @@ jQuery(function($, undefined) {
                 term.echo("    :    ");
                 term.echo(jq['responseJSON'][i].point);
             }
+            term.resume();
         }
         else if (command == ''){
             // do nothing
