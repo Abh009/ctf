@@ -9,6 +9,8 @@ from django.contrib.auth import logout
 def problems(request):
     if request.is_ajax():
         user = request.user
+        if user == None:
+            return HttpResponse("Login required")
         if DoneQuestions.objects.filter(user_id = user.id).exists():
             done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
             done_q_id = [ x.id for x in list(done_q)]
@@ -46,6 +48,8 @@ def home(request):
 @csrf_exempt
 @login_required
 def submit(request):
+    if user == None:
+            return HttpResponse("Login required")
     if request.is_ajax():
        if request.method == 'POST':
            user = request.user
