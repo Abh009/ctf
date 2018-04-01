@@ -123,10 +123,8 @@ jQuery(function($, undefined) {
             term.pause();
             var jq = $.get("/leaderboard/")
             .done(function(result){
-                $(result).each(function(username,point){
-                    term.echo(username);
-                    term.echo(":");
-                    term.echo(point);
+                $(result).each(function(key,object){
+                    term.echo(object.username + ":" + object.point);
                 });
             })
             .fail(function () { 
@@ -139,12 +137,12 @@ jQuery(function($, undefined) {
             //     console.log(" ");
             // });
             
-            var t;
-            for ( var i = 0; i < count; i++){
-                term.echo(jq['responseJSON'][i].username);
-                term.echo("    :    ");
-                term.echo(jq['responseJSON'][i].point);
-            }
+            // var t;
+            // for ( var i = 0; i < count; i++){
+            //     term.echo(jq['responseJSON'][i].username);
+            //     term.echo("    :    ");
+            //     term.echo(jq['responseJSON'][i].point);
+            // }
             term.resume();
         }
         else if (command == ''){
