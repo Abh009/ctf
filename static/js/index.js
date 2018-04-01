@@ -121,6 +121,7 @@ jQuery(function($, undefined) {
         }
         else if( command == 'leaderboard'){
             var jq = $.get("/leaderboard/")
+            console.log(jq.length);
             for( var i=0; i<jq.length; i++)
             {
                 object = jq[i];
