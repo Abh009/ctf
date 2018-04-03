@@ -31,8 +31,4 @@ class BannedUser(models.Model):
 class AttemptLog(models.Model):
     attempt_quest = models.OneToOneField(Problems,on_delete=models.CASCADE)
     attempt_text = models.CharField(max_length=1000,blank=False, null=False)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET(get_sentinel_user),
-    )
     time = models.DateTimeField(auto_now=False,auto_now_add=False)
