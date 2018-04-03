@@ -32,8 +32,8 @@ class BannedUser(models.Model):
         return str(self.user.username)
 
 class AttemptLog(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
-    attempt_quest = models.OneToOneField(Problems,on_delete=models.CASCADE)
+    user = models.IntegerField(blank=False, null=False)
+    attempt_quest = models.IntegerField(blank=False, null=False)
     attempt_text = models.CharField(max_length=1000,null=False,blank=False)
     time = models.DateTimeField(auto_now=False,auto_now_add=False)
 
