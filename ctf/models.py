@@ -30,11 +30,12 @@ class BannedUser(models.Model):
 
     def __str__(self):
         return str(self.user.username)
-class UserLog(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    attempt_quest = models.OneToOneField(Problems,on_delete=models.CASCADE)
-    attempt_text = models.CharField(max_length=1000,blank=False, null=False)
-    time = models.DateTimeField(auto_now=False,auto_now_add=False)
 
-    def __str__(self):
-        return str(self.user.username) + str(self.attempt_quest.title)
+# class UserLog(models.Model):
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     attempt_quest = models.OneToOneField(Problems,on_delete=models.CASCADE)
+#     attempt_text = models.CharField(max_length=1000,blank=False, null=False)
+#     time = models.DateTimeField(auto_now=False,auto_now_add=False)
+
+#     def __str__(self):
+#         return str(self.user.username) + str(self.attempt_quest.title)
