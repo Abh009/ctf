@@ -27,8 +27,3 @@ class DoneQuestions(models.Model):
 class BannedUser(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     is_banned = models.BooleanField(default=False)
-
-class AttemptLog(models.Model):
-    attempt_quest = models.OneToOneField(Problems,on_delete=models.CASCADE)
-    attempt_text = models.CharField(max_length=1000,blank=False, null=False)
-    time = models.DateTimeField(auto_now=False,auto_now_add=False)
