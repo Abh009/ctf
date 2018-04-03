@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 from ctf.models import Problems,DoneQuestions,BannedUser
 from django.contrib.auth import logout
 import operator,json
