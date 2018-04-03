@@ -13,7 +13,8 @@ def problems(request):
         user = request.user
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
-        is_banned = BannedUser.objects.get(user = request.user).is_banned
+        if BannedUser.objects.filter(user = request.user).exists():
+            is_banned = BannedUser.objects.get(user = request.user).is_banned
         if is_banned:
             return HttpResponse("You have been banned\n Contact the administrator")
         if DoneQuestions.objects.filter(user_id = user.id).exists():
@@ -62,7 +63,8 @@ def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
            user = request.user
-           is_banned = BannedUser.objects.get(user = request.user).is_banned
+           if BannedUser.objects.filter(user = request.user).exists():
+                is_banned = BannedUser.objects.get(user = request.user).is_banned
            if is_banned:
                return HttpResponse("You have been banned\n Contact the administrator")
            
