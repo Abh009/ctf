@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from ctf.models import Problems,DoneQuestions
+from ctf.models import Problems,DoneQuestions,BannedUser
 from django.contrib.auth import logout
 import operator,json
 # Create your views here.
@@ -13,6 +13,9 @@ def problems(request):
         user = request.user
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
+        is_banned = BannedUser.objects.filter(user = request.user).is_banned
+        if is_banned:
+            return HttpResponse("You have been banned\n Contact the administrator")
         if DoneQuestions.objects.filter(user_id = user.id).exists():
             done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
             done_q_id = [ x.id for x in list(done_q)]
@@ -59,6 +62,10 @@ def submit(request):
     if request.is_ajax():
        if request.method == 'POST':
            user = request.user
+           is_banned = BannedUser.objects.filter(user = request.user).is_banned
+           if is_banned:
+               return HttpResponse("You have been banned\n Contact the administrator")
+           
            
         #    print(username)
            problem_id = str(request.POST.get('p_id'))
