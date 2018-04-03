@@ -123,8 +123,8 @@ def leaderboard(request):
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
         banned_u = list(BannedUser.objects.filter(is_banned=True))
-        banned_u_id = [ User.objects.get(id=x.user) for x in banned_u]
-        done_qs = list(DoneQuestions.objects.filter(user_id__is_staff = False).exclude(pk__in= banned_u))
+        banned_u_id = [ x.user for x in banned_u]
+        done_qs = list(DoneQuestions.objects.filter(user_id__is_staff = False).exclude(pk__in= banned_u_id))
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1),reverse=True))
