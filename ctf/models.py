@@ -29,6 +29,6 @@ class BannedUser(models.Model):
     is_banned = models.BooleanField(default=False)
 
 class AttemptLog(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User)
     attempt_text = models.CharField(max_length=1000,blank=False, null=False)
     time = models.DateTimeField(auto_now=False,auto_now_add=False)
