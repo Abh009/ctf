@@ -5,5 +5,5 @@ from ctf.models import *
 
 admin.site.register(Problems)
 admin.site.register(DoneQuestions)
-admin.site.register(AttemptLog)
+admin.site.register(UserLog)
 admin.site.register(BannedUser)
