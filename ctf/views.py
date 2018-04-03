@@ -19,7 +19,7 @@ def problems(request):
             is_banned = BannedUser.objects.get(user = request.user).is_banned
         if is_banned:
             return HttpResponse("You have been banned\n Contact the administrator")
-            
+
         if DoneQuestions.objects.filter(user_id = user.id).exists():
             done_q = DoneQuestions.objects.get(user_id = user.id).done_quest.filter()
             done_q_id = [ x.id for x in list(done_q)]
@@ -121,7 +121,8 @@ def leaderboard(request):
     if request.is_ajax():
         if not request.user.is_authenticated:
             return HttpResponse("Login required")
-        done_qs = list(DoneQuestions.objects.filter(user_id__is_staff = False))
+        banned_u = list(BannedUser.objects.filter(is_banned=True))
+        done_qs = list(DoneQuestions.objects.filter(user_id__is_staff = False).exclude(pk__in= banned_u))
         u = { object.user_id.username:len(object.done_quest.filter()) for object in done_qs}
 
         sorted_u = dict(sorted(u.items(), key=operator.itemgetter(1),reverse=True))
