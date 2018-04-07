@@ -63,7 +63,7 @@ hr {
 	<h1>HACKPRIX</h1>
   </div>
   <div class="middle">
-    <h1>It's gonna end</h1>
+    <h1 id="label">It's gonna end</h1>
     <p id="demo"></p>
     <a href="/play" class="button" id="play_btn">Play now</a>
 </div>
@@ -97,7 +97,8 @@ var x = setInterval(function() {
     // If the count down is over, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+        document.getElementById("label").innerHTML = "It has ended";
+        document.getElementById("demo").innerHTML = "";
         document.getElementById("play_btn").style.display = "none";
     }
 }, 1000);
