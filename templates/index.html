@@ -64,6 +64,7 @@ hr {
   </div>
   <div class="middle">
     <h1 id="label">It's gonna end</h1>
+    <h4 id="label2">Complete all the questions and be the ULTIMATE WINNER</h4>
     <p id="demo"></p>
     <a href="/play" class="button" id="play_btn">Play now</a>
 </div>
@@ -99,6 +100,7 @@ var x = setInterval(function() {
         clearInterval(x);
         document.getElementById("label").innerHTML = "It has ended";
         document.getElementById("demo").innerHTML = "";
+        document.getElementById("label2").innerHTML="";
         document.getElementById("play_btn").style.display = "none";
     }
 }, 1000);
