@@ -25,7 +25,7 @@ SECRET_KEY = '@pk@t!of95g7g0g1=+-555m4b-udb0$w&x&3ik1^1o#afm#)71'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'hackprix.fossgect.club']
+ALLOWED_HOSTS = ['127.0.0.1', 'ctf.xyz', 'localhost', 'ctf.zapus.xyz']
 
 
 # Application definition
@@ -104,12 +104,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hackprix',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'srv-captain--mysql',
-        # 'HOST' : 'localhost',
-        'PORT': '3306',
-        # 'PORT':''
+        'USER': 'hackprix',
+        'PASSWORD': 'Hackprix@123',
+        # 'HOST': 'srv-captain--mysql',
+        'HOST' : 'localhost',
+        # 'PORT': '3306',
+        'PORT':''
     }
 }
 
@@ -172,5 +172,5 @@ SOCIAL_AUTH_PIPELINE = (
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'play'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='1015845108958-8s3rdtljibrv5agpps5stjceo3gbvegm.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '1rSGcByWItElehcysA4yW9tb'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1085890669424-cagecj801f6aq377icks7bv4frfs34mn.apps.googleusercontent.com' #'1015845108958-8s3rdtljibrv5agpps5stjceo3gbvegm.apps.googleusercontent.com'  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'NGJhnFJIMZEdCSGQiQdd_k7C' #'1rSGcByWItElehcysA4yW9tb'

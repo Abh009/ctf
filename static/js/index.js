@@ -4,7 +4,7 @@ jQuery(function($, undefined) {
         actual_command = command
         command = command.split(" ")[0];
         if (command == 'about'){
-            var result = 'Online Treasure Hunt by FOSS CLUB GECT';
+            var result = 'Online Treasure Hunt by Dept. of CSE, as a part of KTU Techfest';
             this.echo(new String(result));
         }
         else if ( command == 'problems'){
