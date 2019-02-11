@@ -31,7 +31,7 @@ urlpatterns = [
     path('logout/', views.logout_user, name="logout"),
     path('leaderboard/', views.leaderboard, name="leaderboard"),
     re_path(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
-    re_path(r'^', views.home, name="home"),
+    re_path(r'^', views.terminal, name="random"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
